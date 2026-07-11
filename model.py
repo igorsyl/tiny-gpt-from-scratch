@@ -80,8 +80,14 @@ def make_2d_zeros(rows, cols):
     # allocate a (rows, cols) array of zeros and return it
     return np.zeros((rows, cols))
 
-# Step 12 - make_2d_random (not yet solved)
-# TODO: implement
+# Step 12 - make_2d_random
+import numpy as np
+
+def make_2d_random(rows, cols, seed):
+    """Return a (rows, cols) array of uniform floats in [0, 1) seeded by `seed`."""
+    # build a seeded RNG and draw a (rows, cols) uniform sample in [0, 1).
+    rng = np.random.default_rng(seed)
+    return rng.uniform(low=0, high=1, size=(rows, cols))
 
 # Step 13 - index_element (not yet solved)
 # TODO: implement
