@@ -430,8 +430,13 @@ def average_nll(p_matrix, data):
     # return mean negative log likelihood per bigram over consecutive pairs in data.
     return sum_negative_log_probs(p_matrix, data) / (len(data)-1)
 
-# Step 57 - initialize_w_random (not yet solved)
-# TODO: implement
+# Step 57 - initialize_w_random
+import numpy as np
+
+def initialize_w_random(vocab_size, rng):
+    """Return a (vocab_size, vocab_size) float64 matrix of N(0,1) samples drawn from rng."""
+    # sample a (vocab_size, vocab_size) array of standard normal values using rng
+    return rng.normal(size=(vocab_size, vocab_size))
 
 # Step 58 - scale_w_small (not yet solved)
 # TODO: implement
