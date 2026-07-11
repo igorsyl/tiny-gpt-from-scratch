@@ -777,8 +777,11 @@ def forward_logits_lookup(w, ids):
 # Step 159 - take_last_position_logits (not yet solved)
 # TODO: implement
 
-# Step 160 - apply_temperature (not yet solved)
-# TODO: implement
+# Step 160 - apply_temperature
+def apply_temperature(logits, temperature):
+    """Scale logits by 1/temperature before softmax sampling."""
+    # rescale logits by the temperature to sharpen or flatten sampling
+    return logits / temperature
 
 # Step 161 - top_k_filter (not yet solved)
 # TODO: implement
