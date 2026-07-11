@@ -636,8 +636,12 @@ dL/dW = X.T @ dY
                                                                                                                                                                 
 '''
 
-# Step 77 - linear_backward_dx (not yet solved)
-# TODO: implement
+# Step 77 - linear_backward_dx
+def linear_backward_dx(dy, cache):
+    # compute the gradient of the loss w.r.t. the linear layer input X given dy and cache
+    w = cache['w']
+    dx = dy @ w.T
+    return dx
 
 # Step 78 - linear_backward_dw (not yet solved)
 # TODO: implement
