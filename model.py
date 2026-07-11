@@ -56,8 +56,13 @@ def make_1d_array(values):
     # convert the input list into a 1D numpy ndarray
     return np.asarray(values)
 
-# Step 9 - get_array_shape (not yet solved)
-# TODO: implement
+# Step 9 - get_array_shape
+import numpy as np
+
+def get_array_shape(arr):
+    """Return the shape tuple of a NumPy array."""
+    # return the shape of arr
+    return arr.shape
 
 # Step 10 - get_array_dtype (not yet solved)
 # TODO: implement
