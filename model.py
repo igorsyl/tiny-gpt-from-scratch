@@ -557,8 +557,22 @@ def sgd_update_w(w, dw, learning_rate):
     w = w - dw * learning_rate
     return w
 
-# Step 71 - run_one_training_step (not yet solved)
-# TODO: implement
+# Step 71 - run_one_training_step
+def run_one_training_step(w, ids, targets, learning_rate):
+    """Run forward, loss, backward, and SGD update once. Return {'w': new_w, 'loss': float}."""
+    # chain the upstream forward/loss/backward/update helpers into one step
+    vocab_size = w.shape[1]
+    
+    logits = forward_logits_lookup(w, ids)
+    probs = stable_softmax_2d_rowwise(logits)
+    loss = cross_entropy_loss(probs, targets)
+    dz = compute_dlogits(probs, targets)
+    dw = compute_dw_scatter_add(ids, dz, vocab_size)
+    w = sgd_update_w(w, dw, learning_rate)
+    return {
+        'w': w,
+        'loss': loss,
+    }
 
 # Step 72 - train_neural_bigram_loop (not yet solved)
 # TODO: implement
