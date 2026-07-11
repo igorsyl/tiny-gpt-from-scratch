@@ -497,8 +497,14 @@ def gather_correct_token_probs(probs, targets):
     # pick out the probability assigned to the correct next token for each batch row
     return probs[np.arange(len(targets)), targets]
 
-# Step 65 - cross_entropy_loss (not yet solved)
-# TODO: implement
+# Step 65 - cross_entropy_loss
+import numpy as np
+
+def cross_entropy_loss(probs, targets):
+    """Mean negative log-likelihood over a batch."""
+    # gather correct-token probs, take log, average the negatives
+    correct_probs = gather_correct_token_probs(probs, targets)
+    return np.mean(-array_log(correct_probs))
 
 # Step 66 - derive_dlogits_on_paper (not yet solved)
 # TODO: implement
