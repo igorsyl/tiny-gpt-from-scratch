@@ -698,8 +698,13 @@ def softmax_cross_entropy_backward(probs, targets):
     # produce the (B, V) gradient of mean cross-entropy w.r.t. logits.
     return compute_dlogits(probs, targets)
 
-# Step 84 - layernorm_forward_mean (not yet solved)
-# TODO: implement
+# Step 84 - layernorm_forward_mean
+import numpy as np
+
+def layernorm_forward_mean(x):
+    """Return the per-row mean of x with shape (B, 1)."""
+    # compute the per-row mean of x, preserving the reduced axis as size 1
+    return np.mean(x, axis=-1, keepdims=True)
 
 # Step 85 - layernorm_forward_variance (not yet solved)
 # TODO: implement
