@@ -803,8 +803,10 @@ def layernorm_backward_full(dy, cache):
         'dbeta': dbeta,
     }
 
-# Step 91 - layernorm_backward_implementation (not yet solved)
-# TODO: implement
+# Step 91 - layernorm_backward_implementation
+def layernorm_backward_implementation(d_out, cache):
+    # return {'dx', 'dgamma', 'dbeta'} gradients for LayerNorm given d_out and the forward cache.
+    return layernorm_backward_full(d_out, cache)
 
 # Step 92 - create_token_embedding (not yet solved)
 # TODO: implement
